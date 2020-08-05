@@ -9,7 +9,7 @@ RUN set -ex; \
     \
     mkdir -pv ${SKYWALKING_HOME} \
     \
-    ; wget -O skywalking.tar.gz http://mirror.bit.edu.cn/apache/skywalking/${SKYWALKING_VERSION}/apache-skywalking-apm-${SKYWALKING_VERSION}.tar.gz \
+    ; wget -O skywalking.tar.gz https://downloads.apache.org/skywalking/${SKYWALKING_VERSION}/apache-skywalking-apm-${SKYWALKING_VERSION}.tar.gz \
     ; tar -tf skywalking.tar.gz \
     ; tar -zxvf skywalking.tar.gz --strip-components 2 -C ${SKYWALKING_HOME} apache-skywalking-apm-bin/agent/ \
     \

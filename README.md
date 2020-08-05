@@ -5,7 +5,7 @@
 目前仅支持Java Agent
 
 #### 软件架构
-软件架构说明
+容器启动时会将/usr/local/skywalking目录下的Java Agent文件拷贝至/opt/skywalking目录之中
 
 
 #### 安装教程
