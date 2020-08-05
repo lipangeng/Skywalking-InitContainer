@@ -1,7 +1,7 @@
 FROM busybox
 MAINTAINER 李盼庚 <lipg@outlook.com>
 
-ENV SKYWALKING_VERSION 8.0.1
+ENV SKYWALKING_VERSION 8.1.0
 ENV SKYWALKING_HOME=/usr/local/skywalking \
     AGENT_HOME=/opt/skywalking
 
