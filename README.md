@@ -16,10 +16,55 @@
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+spec:
+  selector:
+    matchLabels:
+      name: demo
+  template:
+    metadata:
+      name: demo
+      labels:
+        name: demo
+    spec:
+      initContainers:
+        - name: skywalking-init
+          image: lipangeng/skywalking-initcontainer:7.0.0
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /opt/skywalking
+              name: skywalking
+      containers:
+        - name: demo
+          image: tomcat
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 1Gi
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          env:
+            - name: TZ
+              value: Asia/Shanghai
+            - name: JAVA_TOOL_OPTIONS
+              value: -javaagent:/opt/skywalking/skywalking-agent.jar
+            - name: SW_AGENT_NAME
+              value: demo
+            - name: SW_AGENT_COLLECTOR_BACKEND_SERVICES
+              value: skywalking-aop.skywalking:11800
+          volumeMounts:
+            - mountPath: /opt/skywalking
+              name: skywalking
+      volumes:
+        - name: skywalking
+          emptyDir: {}
+```
 #### 参与贡献
 
 1.  Fork 本仓库
