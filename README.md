@@ -2,7 +2,7 @@
 
 #### 介绍
 在Kubernetes中可用的Skywalking的InitContainer，用于启动应用是从外部挂载Skywalking的Agent。
-目前仅支持Java Agent
+目前仅支持Java Agent,且默认启用了全部的optional-plugins
 
 #### 软件架构
 容器启动时会将/usr/local/skywalking目录下的Java Agent文件拷贝至/opt/skywalking目录之中
