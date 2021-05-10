@@ -1,7 +1,7 @@
 FROM busybox
 MAINTAINER 李盼庚 <lipg@outlook.com>
 
-ENV SKYWALKING_VERSION 8.1.0
+ENV SKYWALKING_VERSION 8.5.0
 ENV SKYWALKING_HOME=/usr/local/skywalking \
     AGENT_HOME=/opt/skywalking
 
@@ -13,10 +13,8 @@ RUN set -ex; \
     ; tar -tf skywalking.tar.gz \
     ; tar -zxvf skywalking.tar.gz --strip-components 2 -C ${SKYWALKING_HOME} apache-skywalking-apm-bin/agent/ \
     \
-    ; cp -av ${SKYWALKING_HOME}/optional-plugins/* ${SKYWALKING_HOME}/plugins/ \
-    \
     ; rm -rf skywalking.tar.gz \
     \
-    ; ls -la ${SKYWALKING_HOME} 
+    ; ls -la ${SKYWALKING_HOME}
 
-CMD cp -av ${SKYWALKING_HOME}/* ${AGENT_HOME}/
+CMD cp -avf ${SKYWALKING_HOME}/* ${AGENT_HOME}/
